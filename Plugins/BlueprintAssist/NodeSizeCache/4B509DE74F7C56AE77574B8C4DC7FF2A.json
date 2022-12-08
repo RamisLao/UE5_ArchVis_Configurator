@@ -5351,6 +5351,18 @@
 					}
 				}
 			}
+		},
+		"/Game/OpenDoor":
+		{
+			"graphData":
+			{
+				"582B068149F33EC742DAA2B5397A0F30":
+				{
+					"nodeData":
+					{
+					}
+				}
+			}
 		}
 	},
 	"bookmarkedFolders": [],
