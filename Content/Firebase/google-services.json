@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "768973070888",
+    "project_id": "kambio-5cc7a",
+    "storage_bucket": "kambio-5cc7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768973070888:android:a7d1c9668fda2c89724b1d",
+        "android_client_info": {
+          "package_name": "com.kambiohome.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768973070888-v6ns8d093ef9450d2i6n09tbnae35sf8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyKtMKLScZyzSOPhFRNmEjKZqQjK90Mm4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768973070888-v6ns8d093ef9450d2i6n09tbnae35sf8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
