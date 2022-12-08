@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- UPL： https://docs.unrealengine.com/en-US/SharingAndReleasing/Mobile/UnrealPluginLanguage/index.html -->
+
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+  
+  <log text="Firebase UPL operation..."/>
+
+  
+  <!-- https://firebase.google.com/docs/cpp/setup?platform=android -->
+  <gradleCopies>
+
+    <copyFile src="$S(ProjectDir)/Content/Firebase/google-services.json"
+			  dst = "$S(BuildDir)/gradle/app/google-services.json" />
+
+    <copyFile src="$S(PluginDir)/firebase_cpp_sdk/Android/firebase_dependencies.gradle"
+              dst="$S(BuildDir)/gradle/app/firebase_dependencies.gradle"/>
+  </gradleCopies>
+
+  
+  <!--Error: UE4  :app:transformClassesWithDexBuilderForDebug  D8: Program type already present: android.support.v4.os.ResultReceiver$MyResultReceiver-->
+  <!-- Bug fix: https://www.google.com/amp/s/amp.artstation.com/blog/qwle -->
+  
+  <buildscriptGradleAdditions>
+    <insert>
+      <!-- com.google.gms:google-services 4.3.5: build error: Build build.gradle' line: 1 * What went wrong:  A problem occurred evaluating project ' > ASCII -->
+      <!-- change to com.google.gms:google-services:4.2.0 -->
+      dependencies {
+      classpath 'com.google.gms:google-services:4.2.0'
+      }
+    </insert>
+  </buildscriptGradleAdditions>
+
+  <buildGradleAdditions>
+    <insert>  
+      apply plugin: 'com.android.application'
+      apply plugin: 'com.google.gms.google-services'
+      <!--apply from: 'firebase_dependencies.gradle'-->
+	  
+	  android {
+		defaultConfig {
+		  multiDexEnabled true
+		}
+	  }
+	  
+	  dependencies {
+		compile 'com.android.support:multidex:2.0.1'
+	  }
+	  
+	  <!-- Mapping -->
+	  allprojects{
+		def mappings=[
+			'android.support.annotation': 'androidx.annotation',
+			'android.arch.lifecycle': 'androidx.lifecycle',
+			'android.support.v4.app.NotificationCompat': 'androidx.core.app.NotificationCompat',
+			'android.support.v4.app.NotificationManagerCompat': 'androidx.core.app.NotificationManagerCompat',
+			'android.support.v4.app.ActivityCompat': 'androidx.core.app.ActivityCompat',
+			'android.support.v4.content.ContextCompat': 'androidx.core.content.ContextCompat',
+			'android.support.v4.content.FileProvider': 'androidx.core.content.FileProvider',
+			'android.support.v13.app.FragmentCompat': 'androidx.legacy.app.FragmentCompat',
+			'android.arch.lifecycle.Lifecycle': 'androidx.lifecycle.Lifecycle',
+			'android.arch.lifecycle.LifecycleObserver': 'androidx.lifecycle.LifecycleObserver',
+			'android.arch.lifecycle.OnLifecycleEvent': 'androidx.lifecycle.OnLifecycleEvent',
+			'android.arch.lifecycle.ProcessLifecycleOwner': 'androidx.lifecycle.ProcessLifecycleOwner',
+			]
+		afterEvaluate { project ->
+			 project.rootProject.projectDir.traverse(type: groovy.io.FileType.FILES, nameFilter: ~/.*\.java$/) { f ->
+				mappings.each{ entry ->
+					if (f.getText('UTF-8').contains(entry.key)) {
+							println "Updating ${entry.key} to ${entry.value} in file ${f}"
+							ant.replace(file: f, token: entry.key, value: entry.value)
+						}
+					}
+				}
+			}
+		} 
+    </insert>
+  </buildGradleAdditions>
+
+  <AARImports>
+
+    <!-- AAR: https://firebase.google.com/docs/auth/android/start -->
+
+    <!-- 20.0.2: build error: Manifest merger failed : uses-sdk:minSdkVersion 14 cannot be smaller than version 16 declared in library [com.google.firebase:firebase-auth:20.0.2] -->
+    <!-- change to miniSdkVersion to 16 in Project Setting  -->
+	
+    <insertValue value="com.google.firebase,firebase-auth,19.3.2"/>
+    <insertNewline/>
+
+    <insertValue value="com.google.firebase,firebase-firestore,21.6.0"/>
+    <insertNewline/>
+
+    
+  </AARImports>
+  
+  <androidManifestUpdates>
+	<!-- <addAttribute tag="application" name="android:name" value="android.support.multidex.MultiDexApplication"/> -->
+	<addAttribute tag="application" name="android:name" value="androidx.multidex.MultiDexApplication"/>
+  </androidManifestUpdates>
+
+  <gradleProperties>
+    <insert>
+	  <!--Error: UE4  :app:transformClassesWithDexBuilderForDebug  D8: Program type already present: android.support.v4.os.ResultReceiver$MyResultReceiver-->
+	  <!--Fix: https://stackoverflow.com/questions/50676100/program-type-already-present-android-support-v4-os-resultreceivermyresultrecei -->
+      android.useAndroidX=true
+      android.enableJetifier=true
+    </insert>
+  </gradleProperties>
+	
+  <proguardAdditions>
+    <insert>
+
+      <!-- bug fix -->
+      <!-- -keep class android.support.multidex.** {*;} -->
+	  -keep class androidx.multidex.** { *; }
+
+      <!-- copy from auth.pro -->
+      -keepattributes *Annotation*
+      -keepattributes Signature
+      -keepclasseswithmembers class * { @retrofit.http.* &lt;methods&gt;; }
+      -keep class retrofit.** { *; }
+      -keep,includedescriptorclasses public class com.google.firebase.app.internal.cpp.Log { *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.AdditionalUserInfo{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.AuthCredential{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.AuthResult{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.EmailAuthProvider{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FacebookAuthProvider{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseAuth { *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseAuth{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseAuthActionCodeException{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseAuth$AuthStateListener { *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseAuthEmailException{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseAuthException{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseAuth$IdTokenListener { *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseAuthInvalidCredentialsException{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseAuthInvalidUserException{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseAuthRecentLoginRequiredException{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseAuthUserCollisionException{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseAuthWeakPasswordException{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseAuthWebException{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseUser{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.FirebaseUserMetadata{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.GetTokenResult{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.GithubAuthProvider{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.GoogleAuthProvider{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.OAuthProvider{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.OAuthProvider$Builder{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.OAuthProvider$CredentialBuilder{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.PhoneAuthCredential { *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.PhoneAuthCredential{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.PhoneAuthProvider { *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.PhoneAuthProvider{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.PhoneAuthProvider$ForceResendingToken { *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.PhoneAuthProvider$OnVerificationStateChangedCallbacks { *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.PlayGamesAuthProvider{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.SignInMethodQueryResult{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.TwitterAuthProvider{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.UserInfo{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.auth.UserProfileChangeRequest$Builder{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.FirebaseApiNotAvailableException{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.FirebaseException { *; }
+      -keep,includedescriptorclasses public class com.google.firebase.FirebaseException{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.FirebaseNetworkException{ *; }
+      -keep,includedescriptorclasses public class com.google.firebase.FirebaseTooManyRequestsException{ *; }
+      -keep,includedescriptorclasses public class java.util.concurrent.TimeUnit{ *; }
+      
+    </insert>
+  </proguardAdditions>
+
+</root>

@@ -122,7 +122,7 @@
 		},
 		{
 			"Name": "FBP",
-			"Enabled": true,
+			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/6805c8b574514c7d96ab081d52330da5"
 		},
 		{
