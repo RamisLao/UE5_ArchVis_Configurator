@@ -133,6 +133,11 @@
 		{
 			"Name": "JsonBlueprintUtilities",
 			"Enabled": true
+		},
+		{
+			"Name": "EasyScreenshot",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/b6196ef44faf4abcb5b25280d95b6f31"
 		}
 	]
 }
