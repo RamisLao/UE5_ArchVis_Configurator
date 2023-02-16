@@ -1,1 +1,1 @@
-<img src="\images\Kambio-01.jpg>
+<img src="./Images/Kambio-01.jpg">
