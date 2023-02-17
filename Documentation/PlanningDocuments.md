@@ -17,7 +17,7 @@
 <p>This document contains Ids for all the Materials and Selections that can be used in the app.</p>
 <p><strong>Materials</strong> can be applied to meshes in UE to change their appearance. <strong>Selections</strong> define whether an object is included in the final design or not. Visually, this is represented as showing or hiding a specific mesh.</p>
 
-<h5>MaterialIds</h5>
+<h4>MaterialIds</h4>
 
 <p>The <em>MaterialIds</em> Tab looks something like this:
 
@@ -25,7 +25,7 @@
 
 <p>MaterialIds need to be defined in order to pair them up with multiple configuration options inside of the app (see <a href=".\MaterialsAndSelections.md">Materials and Selections</a> for more information about these options). The names in the Material column are only for reference and for people to be able to identify them easily.</p>
 
-<h5>SelectionIds</h5>
+<h4>SelectionIds</h4>
 
 <img src="./Images/Template_SelectionIds.png">
 
@@ -39,7 +39,7 @@
 
 <p>This document should be unique to each project and model, as it defines specific behaviors inside of the app. Here's a tour of all of the Tabs included in this document:</p>
 
-<h5>ModelIds</h5>
+<h4>ModelIds</h4>
 
 <p>The first tab, <em>ModelIds</em>, looks like this:</p>
 
@@ -47,31 +47,31 @@
 
 <p>In here, you define the Ids for the models that you're going to configure. These Ids correspond to specific levels in UE.</p>
 
-<h5>VariationIds</h5>
+<h4>VariationIds</h4>
 
 <img src="./Images/Template_VariationIds.png">
 
 <p>These Ids represent the variations that a single model may have. For example, different number of floors, different layouts, etc. In UE, these variationIds are used to decide which meshes to show and which to hide.</p>
 
-<h5>SectionIds</h5>
+<h4>SectionIds</h4>
 
 <img src="./Images/Template_SectionIds.png">
 
 <p>SectionIds represent different well-defined sections of the model. For example, for Nabuko we divided the model into 5 sections, each one representing a floor. VariationIds are paired to different combinations of SectionIds, to figure out which Sections should be visible and which ones hidden.</p>
 
-<h5>CeilingIds</h5>
+<h4>CeilingIds</h4>
 
 <img src="./Images/Template_CeilingIds.png">
 
 <p>In order for aerial shots to work, we sometimes need to hide the ceilings. In order to do this, we need to assign a CeilingId to all meshes that we need to show/hide.</p>
 
-<h5>CameraIds</h5>
+<h4>CameraIds</h4>
 
 <img src="./Images/Template_CameraIds.png">
 
 <p>We will need a lot of Cameras for the Configuration Phase of the app. Each Camera needs its own CameraId for this reason. The column <em>Camera Name</em> can contain either the actual name of the Camera in the Outliner or a reference name that is easy to understand.</p>
 
-<h5>OptionIds</h5>
+<h4>OptionIds</h4>
 
 <img src="./Images/Template_OptionIds.png">
 
