@@ -1,4 +1,4 @@
-<a href=".\Documentation.md">Go Back</a>
+<a href=".\Documentation.md">Go to Main Menu</a>
 
 <h2>Planning Documents</h2>
 
@@ -19,7 +19,7 @@
 
 <h4>MaterialIds</h4>
 
-<p>The <em>MaterialIds</em> Tab looks something like this:
+<p>The <em>MaterialIds</em> Tab looks something like this:</p>
 
 <img src="./Images/Template_MaterialIds.png">
 
@@ -80,8 +80,8 @@
 - Materials
 - Selections
 
-<p><strong>Material</strong> Options define which Material will be ultimately attached to a certain object.</p>
-<p><strong>Selection</strong> Options define whether an object will be included or not in the final design.</p>
+<p><strong>Material Options</strong> define which Material will be ultimately attached to a certain object.</p>
+<p><strong>Selection Options</strong> define whether an object will be included or not in the final design.</p>
 <p>As you can see in the screenshot, the <em>Description</em> column describes the Mesh that will be configured and whether the Option is a Material or a Selection. The flavor of the Option needs to be defined explicitly in UE.</p>
 
 ***
