@@ -69,7 +69,7 @@
 
 <img src=".\Images\UE_3DModels_NameTag.png">
 
-> <color="red">Beware! The <strong>Tags</strong> that will be used are the ones in the <strong>Actor</strong> section. The <strong>Component Tags</strong> will all be ignored.</color>
+> <span style="color:red;">Beware! The <strong>Tags</strong> that will be used are the ones in the <strong>Actor</strong> section. The <strong>Component Tags</strong> will all be ignored.</span>
 
 > Alternatively, you can also choose to tag your Static Meshes directly on Archicad or 3ds Max. If you import using Datasmith, the Tags should remain.
 
