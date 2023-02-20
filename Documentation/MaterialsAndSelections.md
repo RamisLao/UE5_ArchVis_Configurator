@@ -101,4 +101,4 @@
 
 ***
 
-Now that you know everything about DataAssets related to Materials and Selections, you can either go back to the <a href=".\Documentation.md">Main Menu</a> or read about <a href=".\3DModels.md>Importing and Tagging 3D Models</a>.
+Now that you know everything about DataAssets related to Materials and Selections, you can either go back to the <a href=".\Documentation.md">Main Menu</a> or read about <a href=".\3DModels.md">Importing and Tagging 3D Models</a>.
