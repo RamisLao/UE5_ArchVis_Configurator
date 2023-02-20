@@ -13,7 +13,7 @@
 
 > This first step is optional but highly recommended.
 
-<p>Each <strong>OptionId</strong> (see <a href=".\PlanningDocuments.md">) represents a decision that the user will need to take in order to configure their home. Each decision changes either the <em>Material</em> or the <em>Visibility</em> of 1 or more Static Meshes. Because we need to tag Static Meshes with their respective <strong>Option Ids</strong> it makes everything easier to merge beforehand all the Static Meshes that correspond to an <option>Option Id</option>. This can be done in 3ds Max, Blender, Maya, or any other 3D graphics software.</p>
+<p>Each <strong>OptionId</strong> (see <a href=".\PlanningDocuments.md">Planning Documents</a>) represents a decision that the user will need to take in order to configure their home. Each decision changes either the <em>Material</em> or the <em>Visibility</em> of 1 or more Static Meshes. Because we need to tag Static Meshes with their respective <strong>Option Ids</strong> it makes everything easier to merge beforehand all the Static Meshes that correspond to an <option>Option Id</option>. This can be done in 3ds Max, Blender, Maya, or any other 3D graphics software.</p>
 <p>For example, this is the Static Mesh for the outer, flat walls of the first floor of the Nabuko model:</p>
 
 <img src=".\Images\UE_3dModels_ExtLis.png">
@@ -35,7 +35,7 @@
 
 <p>This Static Mesh was tagged with the following <strong>Tags</strong>:</p>
 
-<img stc=".\Images\UE_3DModels_CeilingTags.png">
+<img src=".\Images\UE_3DModels_CeilingTags.png">
 
 <p>As you can see, this Static Mesh has 3 <strong>Tags</strong>:</p>
 
@@ -69,7 +69,7 @@
 
 <img src=".\Images\UE_3DModels_NameTag.png">
 
-> <color="Red">Beware! The <strong>Tags</strong> that will be used are the ones in the <strong>Actor</strong> section. The <strong>Component Tags</strong> will all be ignored.
+> <color="red">Beware! The <strong>Tags</strong> that will be used are the ones in the <strong>Actor</strong> section. The <strong>Component Tags</strong> will all be ignored.</color>
 
 > Alternatively, you can also choose to tag your Static Meshes directly on Archicad or 3ds Max. If you import using Datasmith, the Tags should remain.
 
