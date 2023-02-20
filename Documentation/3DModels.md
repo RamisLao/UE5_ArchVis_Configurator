@@ -2,7 +2,7 @@
 
 <h2>Importing and Tagging 3D Models</h2>
 
-<p>Ok, so you have already prepared your <a href=".\PlanningDocuments.md"> and know exactly what Options the user will get to configure their home. Now, we need to assemble a scene in UE with all of the Meshes that represent the different parts of the house. There are two basic steps that need to be done in order to make this happen:</p>
+<p>Ok, so you have already prepared your <a href=".\PlanningDocuments.md">Planning Documents</a> and know exactly what Options the user will get to configure their home. Now, we need to assemble a scene in UE with all of the Meshes that represent the different parts of the house. There are two basic steps that need to be done in order to make this happen:</p>
 
 1. Merge Meshes with the same OptionId
 2. Tag Meshes in UE
