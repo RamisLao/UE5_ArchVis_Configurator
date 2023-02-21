@@ -10,7 +10,7 @@
 <p>We already talked about how to configure Static Meshes in UE. Now, we will talk about how to place <strong>Cameras</strong> and configure them.</p>
 <p>First, of all, let's take a look at the types of cameras we have:</p>
 
-<img src=".\Images\UE_ConfigurationCameras_Folder.png">
+<img src=".\Images\UE_Cameras_Folder.png">
 
 <p>If you go to <code>Content\Kambio\Blueprints\Cameras</code> you can see that there are 4 different types of cameras:</p>
 
@@ -62,4 +62,4 @@
 
 ***
 
-<p>Now that you know how to Configure your Cameras, you can either go back to the <a href=".\Documentation.md">Main Menu</a> or read about <a href="ConfigurationDataAssets">Configuration DataAssets</a>.</p>
+<p>Now that you know how to Configure your Cameras, you can either go back to the <a href=".\Documentation.md">Main Menu</a> or read about <a href="ConfigurationDataAssets.md">Configuration DataAssets</a>.</p>

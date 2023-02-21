@@ -27,7 +27,7 @@
 
 <p>Press <code>Right Click</code> on the Mouse and select <em>Miscellaneous\DataAsset</em> from the menu:</p>
 
-<img src".\Images\UE_DataAssetCreation.png">
+<img src=".\Images\UE_DataAssetCreation.png">
 
 <p>Select which type of <em>Data Asset</em> you want to create:</p>
 

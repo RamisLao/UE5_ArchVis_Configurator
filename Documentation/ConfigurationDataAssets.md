@@ -157,5 +157,5 @@
 
 ***
 
-<p>Now that you know everything there is to know about Configuration DataAssets, you can either go back to the <a href=".\Documentation.md">Main Menu</a> or read about <a href=".\Exploration">Exploration</a>.</p>
+<p>Now that you know everything there is to know about Configuration DataAssets, you can either go back to the <a href=".\Documentation.md">Main Menu</a> or read about <a href=".\Exploration.md">Exploration</a>.</p>
 

@@ -2,7 +2,7 @@
 
 <h2>Planning Documents</h2>
 
-<p>Before starting to work on the 3D Models and the app itself, it's recommended that you fill out a <a href="https://docs.google.com/spreadsheets/d/1tirKEcfqgEeAbgIboBKJhHMu6JjnoDh1ypMFOgjFHaI/edit?usp=sharing">Materials and Selections</a> document and a <a href="https://docs.google.com/spreadsheets/d/1TJ2FMF50aW9vsFhHdnmLKUKm8cefDa5NJK4YjgLp7M8/edit?usp=sharing">Configuration Ids</a> spreadsheet to plan everything out.</p>
+<p>Before starting to work on the 3D Models and the app itself, it's recommended that you fill out a <a href="https://docs.google.com/spreadsheets/d/1tirKEcfqgEeAbgIboBKJhHMu6JjnoDh1ypMFOgjFHaI/edit?usp=sharing" target="_blank">Materials and Selections</a> document and a <a href="https://docs.google.com/spreadsheets/d/1TJ2FMF50aW9vsFhHdnmLKUKm8cefDa5NJK4YjgLp7M8/edit?usp=sharing" target="_blank">Configuration Ids</a> spreadsheet to plan everything out.</p>
 <p><em>Materials And Selections</em> may be (and it's advised for it to be) shared among all models and projects, as it will be common to use the same Materials and Selections in several models.</p>
 <p>The <em>Configuration Ids</em> spreadsheet is unique per model, so you need to make a copy for every different model that you want to configure</p>
 
