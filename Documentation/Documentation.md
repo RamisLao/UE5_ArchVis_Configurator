@@ -1,5 +1,3 @@
-<img src="./Images/Kambio-01.jpg">
-
 <p align="center">
 	<h1>Documentation</h1>
 </p><br><br>
